@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>The Magical Cat Button</title>
+</head>
+
+<body>
+  <div id="newButtons"></div>
+  <div class="searchGIF">Search GIFS</div>
+  <input id="searchfield" type="text">
+  <button id="Submit">Submit</button>
+  <div id="images">
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    
+    var newDiv = $("<div>");
+    var newButton = $("<button>");
+
+    $("#Submit").on("click", function() {
+      console.log("hi");
+      var search = $("#searchfield").val();
+      console.log(search);
+      newButton.attr("class", search);
+      newButton.attr("value", search);
+      newButton.append(search);
+      newDiv.append(newButton);
+    
+    $("#newButtons").append(newDiv);
+
+      
+    });
+
+    $(this).attr(search).on("click", function (){
+      event.preventDefault();
+      //queryURL stuff
+      var queryURL = "https://api.giphy.com/v1/gifs/search?q=" search + "&api_key=" + apikey + "&limit=5";
+      var apikey = "smQ8EIutOoMl5JKXDKJqwLZpeH6kch27"
+
+      //ajax call
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).then(function(response) {
+
+        //
+          var imageUrl = response.data[i].images_original_url;
+
+    });
+  </script>
+</body>
+
+</html>
